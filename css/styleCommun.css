@@ -1,0 +1,128 @@
+/* Déclaration des variables*/
+:root {
+	--color_1 : #0000ff;
+	--color_2 : #363636;
+	--color_3 :red;
+	/*--color_4 : ; en attente */
+	--color_5:#FEFEFE;
+	--color_6:rgba(0,0,255,0.5);
+	
+	--policeTaille_0: 0.2rem; /* Soit 2px */
+	--policeTaille_1 :0.5rem; /* soit 5px */
+	--policeTaille_2: 1.0rem; /* soit 10px */
+	--policeTaille_9: 1.4rem; /* Soit 14px */
+	--policeTaille_3: 1.8rem; /* soit 18px */
+	--policeTaille_4: 2.0rem; /* soit 20px */
+	--policeTaille_10: 2.2rem; /* soit 22px */
+	--policeTaille_5: 2.5rem; /* soit 25px */
+	--policeTaille_6: 3.0rem; /* soit 30px */
+	--policeTaille_7: 4.0rem; /* soit 40px */
+	--policeTaille_8: 5.0rem; /* soit 50px */
+
+	--policeFonts_1:"Times New Roman";
+    --policeFonts_2:"Impact";
+    
+    --hauteurPhoto_Base : 300px;
+	--largeurPhoto_Base : 400px;
+
+	--hauteurLigne_1 : 330px;
+	--hauteurLigne_2 : 300px;
+
+	
+	--largeurColonne_1:330px;
+	--largeurColonne_2:425px;
+	
+
+	--nombrePhoto_1:12;
+	
+}
+
+
+html {
+    height: 100%; /* La hauteur de la page HTML est de 100 % du disponible */
+    font-size: 62.5%; 
+	/*Afin de pouvoir utiliser facilement l'unité REM. 
+	Dans l'unité REM avec cette valeur de 62.% 
+	1.0 rem = 10 px */
+	background: var(--color_5);/*Couleur du fond de la page*/
+	line-height: 150%;/*hauteur de ligne*/
+	
+}
+
+body{
+	height: 85%; /* La hauteur de la page HTML est de 100 % du disponible */
+
+}
+
+
+strong {
+    font-weight: bold;
+    font-size: var(--policeTaille_4);
+    
+}
+
+em {
+    color:var(--color_1);
+    font-size: var(--policeTaille_5);
+    
+}
+
+mark {
+    font-weight: bold;
+    background-color:transparent;
+    color:var(--color_1) ;
+}
+
+@media screen and (max-width:1850px) {
+	:root {
+
+		--hauteurLigne_1 : 620px;
+
+
+	}
+
+}
+
+
+@media screen and (max-width:1600px) {
+	:root {
+
+		--hauteurLigne_1 : 800px;
+       
+
+
+
+	}
+
+}
+
+@media screen and (max-width:1050px) {
+	:root {
+
+		--hauteurLigne_1 : 1000px;
+
+
+	}
+
+}
+
+
+@media screen and (max-width:800px) {
+	:root {
+
+		--hauteurLigne_1 : 1200px;
+
+
+	}
+
+}
+
+@media screen and (max-width:600px) {
+	:root {
+
+		--hauteurLigne_1 : 1400px;
+
+
+	}
+
+}

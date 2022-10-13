@@ -1,0 +1,180 @@
+.formulaireContact {
+    width: 85%;
+    height: 700px;
+    margin:auto;  
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "gauche formulaire"
+    ;       
+}
+
+.rectGauche {
+    display: block;
+    grid-area:gauche;
+    height: 80%;
+    margin: 50px auto 50px auto; /* Marge Haute Droite Basse Gauche */
+    padding: 50px 50px ; /* Padding interne au conteneur haut/bas gauche/droite */
+}
+
+.image_1{
+    margin-top: -50px;
+    margin-left: -50px;
+    
+}
+
+.image_2{
+    margin-top: 100px;
+    margin-left: 50px;
+    
+}
+
+
+.grid_formulaire {  
+    display: block;
+    grid-area:formulaire;
+    height:80%;
+    margin: 50px auto 100px auto; /* Marge Haute Droite Basse Gauche */
+    padding: 20px 50px ; /* Padding interne au conteneur haut/bas gauche/droite */
+    border: 5px solid var(--color_1); /* Bordure */
+    border-radius: 15px; /* Coin arrondi */
+    box-shadow: 10px 10px 10px  var(--color_6); 
+    display:grid;/* Utilisation de grille de placement */
+    grid-template-columns:1fr 1fr 1fr; /* Nombre de Colonnes */
+    grid-template-rows:30px 180px 30px 30px 30px 10px 30px;/* Nombre de Lignes */
+    row-gap: 20px;
+    column-gap: 50px;
+    grid-template-areas:    
+    "A A A"   
+    "B E E"
+    "C E E"
+    "D E E"
+    "captcha E E"
+    "F F F"    
+    "G H I"
+    ; 
+    /* Détermination de la grille */
+}
+
+label {
+    display: block;
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_3); /*Choix de la taille de la police d'écriture */
+    color:var(--color_1); /* Couleur du texte */
+    margin-bottom:5px;
+    margin-left: 20px;
+}
+
+input, select {
+    display:block; /* Mode display pour le conteneur */
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_3); /*Choix de la taille de la police d'écriture */
+    color:var(--color_2); /* Couleur du texte */   
+}
+
+.case_legende {
+    grid-area:A; /*Emplacement dans la grille */
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+    color:var(--color_1); /* Couleur du texte */
+    text-align: center; /* Alignement du texte */                 
+}
+
+.case_nom {
+    display:block;
+    grid-area:B;
+    background-color: aquamarine;  
+      
+}
+
+#c_nom {    
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+    color:var(--color_2); /* Couleur du texte */
+    height:80%;
+    width: 95%;
+    vertical-align: top;
+    
+   
+}
+
+.case_message {
+    display:block;   
+    grid-area:E;
+    background-color: aquamarine; 
+    
+}
+#c_message {
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+    color:var(--color_2); /* Couleur du texte */
+    height:80%;
+    width: 95%;
+    vertical-align: top;
+    
+}
+.case_telephone {
+    grid-area:C; /*Emplacement dans la grille */
+}
+
+.case_mail {
+    grid-area:D; /*Emplacement dans la grille */
+}
+
+.myCaptcha {
+    grid-area:captcha;
+}
+
+.contact_BordureInferieure {
+    grid-area:F;
+    border-bottom:2px solid var(--color_1);
+    
+}
+.btn {
+    display: block;
+    grid-area:I;
+}
+
+.btn button{    
+    height:50px; /* Hauteur du Bouton */
+    width:100px; /* Largeur du Bouton */
+    margin-left:50% ;
+    background-color: var(--color_1); /* Couleur du Bouton */
+    border-radius: 10px; /* Bord Arrondi */
+    color:var(--color_5); /* Couleur du texte */
+    font-size: var(--policeTaille_4); /* Hauteur de la police */
+    font-family: var(--policeFonts_2); /* Police de caractère */
+    cursor: pointer; /* permet de changer l'apparence de la souris */
+}
+
+.btn button:hover {
+    background-color: var(--color_5); /* Couleur du Bouton */
+    color:var(--color_1); /* Couleur du texte */
+    border: 2px solid var(--color_1);
+    border-top: 0;
+    border-bottom: 0;   
+ }
+
+ .case_errors {
+    display:block;
+    grid-area:G; /*Emplacement dans la grille */
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+    color:var(--color_3); /* Couleur du texte */
+    border: 2px solid red;
+    background-color: bisque;   
+
+}
+
+.bon_envoi_message {
+    display:block;
+    grid-area:H; /*Emplacement dans la grille */
+    font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+    font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+    color:green; /* Couleur du texte */
+    border: 2px solid green; /*Bordure */
+    text-align: center; /* Alignement du texte */
+    align-self: center; /* Alignement vertical */
+    background-color: brown;
+ }

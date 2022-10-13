@@ -1,0 +1,78 @@
+main {
+    width: 85%; /* Largeur du main dans la page */
+    height: auto; /* Hauteur du "main" dans la page */
+    margin: auto auto ;
+    padding-top: 30px;
+   
+}
+
+.section_1 {
+    display: grid;
+    width: 100%;
+    height: 530px;
+    grid-template-rows:1fr 20px; /* on détermine le nombre de lignes et leur hauteur */
+	grid-template-columns:auto 1fr auto; /* on détermine le nombre de colonnes et leur largeur */
+    grid-template-areas: 
+    "img1 . img2"
+    "BandInf BandInf BandInf"
+    ;/* Affectation de noms au zone de la grille */ 
+    
+   
+    
+    
+}
+
+.imageCarrousselResponsive {
+    width: 750px;
+    height: 500px;
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.img1 { 
+    grid-area: img1;
+    animation: entreeParLaGauche 5s ;
+    
+}
+
+
+.img2 {   
+    grid-area: img2;
+    animation: entreeParLaDroite 5s ;
+}
+
+
+@keyframes entreeParLaGauche {
+    0% {
+        transform: translateX(-600px);   
+        transform-origin: 0% 0%;
+    }
+    100% {
+        transform: translateX(0px);   
+        transform-origin: 100% 100%;
+    }
+  }
+
+  @keyframes entreeParLaDroite {
+    0% {
+      
+        transform: translateX(+600px);      
+        transform-origin: 100% 100%;
+    }
+    100% {
+        transform: translateX(0);     
+        transform-origin: 100% 100%;
+    }
+  }
+  
+  
+
+
+.section_1-BandeauInf {
+    grid-area: BandInf;
+    background: var(--color_1); /* couleur du fond */
+
+
+
+}

@@ -1,0 +1,382 @@
+header {
+	width : 85%; /*Largeur en pourcentage du header par rapport à la page */
+	margin :0 auto; /* on définit les marges hautes et basses, puis droite et gauche */
+	margin-top:var(--policeTaille_1) ; /*On applique une marge haute*/
+	height:200px; /*Hauteur en pourcentage du header par rapport à la page */
+	display:grid; /*on active le mode de grille pour le positionnement des "enfants directs"*/
+	grid-template-rows:20px 60px 60px 60px 20px; /* on détermine le nombre de lignes et leur hauteur */
+	grid-template-columns: var(--policeTaille_4) 1fr 1fr 1fr var(--policeTaille_4); /* on détermine le nombre de colonnes et leur largeur */
+	grid-template-areas: 
+	"BandSup BandSup BandSup BandSup BandSup"
+	"BandCentre BandCentre BandCentre BandCentre BandCentre"
+	"BandCentre BandCentre BandCentre BandCentre BandCentre"
+	"BandCentre BandCentre BandCentre BandCentre BandCentre"
+	"BandInf BandInf BandInf BandInf BandInf"	
+	;	/*On détermine les noms des zones dans la grille */
+}
+
+.header-BandeauSup {
+	grid-area:BandSup; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	background: var(--color_1); /* couleur du fond */
+	position: relative;
+}
+
+.btn_band_sup {
+	position: absolute;
+	float: right; /* Display float */
+	padding: 0 0;
+	margin-top:2px; /* Marge Haute */
+	margin-left: 75%;
+	color: var(--color_5); /* COuleur du texte */
+	font-size: var(--policeTaille_5); /*Choix de la taille de la police d'écriture */
+	font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+	font-size: var(--policeTaille_9); /*Choix de la taille de la police d'écriture */
+	background: var(--color_1); /* couleur du fond */
+	border:none; /* Enlever toute bordure */
+}
+
+.header-BandeauCentral {
+	position: relative;
+	grid-area:BandCentre; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	display: grid; /*on active le mode de grille pour le positionnement des "enfants directs"*/
+	grid-template-rows:57px 57px 57px; /* on détermine le nombre de lignes et leur hauteur */
+	grid-template-columns: 5fr 6fr 1fr; /* on détermine le nombre de colonnes et leur largeur */
+	column-gap: 2px; /*On détermine les intercolonnes */
+	row-gap: 2px; /*on détermine les interlignes*/
+	grid-template-areas:
+	
+	"NomSoc . ."
+	"NomMet Nav Logo"	
+	"Slog . ."
+	
+	
+	;/*On détermine les noms des zones dans la grille 
+
+	 ---- On utilise le point pour placer une zone libre ----
+
+	 */
+}
+
+.logo {
+	grid-area:Logo; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	align-self: center;
+	justify-self: center;
+	width:100%; /* Largeur d'occupation sur la Zone */
+}
+
+.nomSociete {
+	grid-area:NomSoc; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	display: inline-block;
+	margin-top: var(--policeTaille_2) ;/*Définition d'une marge haute*/
+	font-family: var(--policeFonts_2); /*Choix de la police d'écriture*/
+	font-size: 40px; /*Choix de la taille de la police d'écriture */
+	color: var(--color_1); /* Choix de la couleur de la police d'écriture */
+	margin: auto; /* Permet de center l'élément dans la cellule Grid */
+}
+
+.notreMetier {
+	grid-area:NomMet; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	display: inline-block;
+	font-family: var(--policeFonts_2); /*Choix de la police d'écriture*/
+	font-size: 30px; /*Choix de la taille de la police d'écriture */
+	color: var(--color_6); /* Choix de la couleur de la police d'écriture */
+	margin-top:var(--policeTaille_0); /*Marge supérieur*/
+	margin: auto; /* Permet de center l'élément dans la cellule Grid */
+}
+
+.slogan {
+	grid-area:Slog; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	display: inline-block;
+	font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+	font-size: 20px; /*Choix de la taille de la police d'écriture */
+	color: var(--color_2); /* Choix de la couleur de la police d'écriture */
+	font-weight: bold; /*Mise en gras du texte */
+	margin: auto; /* Permet de center l'élément dans la cellule Grid */
+}
+
+.menuNavigation {
+	position: absolute;
+	margin:auto;
+	grid-area:Nav; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	color: var(--color_1); /* Choix de la couleur de la police d'écriture */
+	
+}
+
+.nav_Item {
+	text-decoration: none;/*On ne souligne pas les liens*/
+	color:inherit;/*On ne modifie pas la couleur des liens*/
+	font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+	font-size: 25px; /*Choix de la taille de la police d'écriture */
+	padding : var(--policeTaille_2) var(--policeTaille_2); /*On dispose d'un padding autour du lien*/
+	display: inline-block;
+	position: relative;
+	
+}
+
+.pageInactive::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom:-2px;
+	width: 80%;
+	height: 3px;
+	transform:scaleX(0);
+	transform-origin: left;
+	background-color: var(--color_1);
+	transition:transform 0.3s ease-out;	
+}
+
+.pageInactive:hover::after {
+	transform:scaleX(1);
+}
+
+.pageActive {
+	border-bottom: var(--policeTaille_2) solid var(--color_1); /*Souligne la page active*/
+}
+
+.btnMenuResponsive{
+	display: none;
+	grid-area: Logo;
+	position: relative;
+	height: 60px;
+	width: 60px;
+	border:1px solid var(--color_1) ; /* Aucune bordure dans les boutons */
+	cursor: pointer; /* On met un curseur pour que la souris se transforme en pointer au passage des boutons */
+	border-radius: 10px; /* On arrondi les angles des boutons */
+	background-color: var(--color_5);
+	margin-top: 5px;
+	align-items: center;		
+}
+
+
+.lignes {
+	display: block;
+	position: absolute;
+	border-radius:10px; /* On arrondi les angles des lignes*/  
+	width:48px; /* Largeur de la ligne */
+	height:4px; /* Hauteur de la ligne */
+	background-color: var(--color_1); /* Couleur de la ligne */
+	pointer-events: none;
+	transition: opacity 0.3s 0.15s ease-out;
+}
+
+.lignes:nth-child(1),
+.lignes:nth-child(3){
+	transition: transform 0.3s ease-out;
+}
+
+.lignes:nth-child(1){
+	transform: translateY(12px);
+}
+
+.lignes:nth-child(3){
+	transform: translateY(-12px);
+}
+.btnMenuResponsive.open {
+	transform: translateX(-100px) translateY(60px);
+	height:25px;
+	width:25px;
+	
+}
+
+
+
+.btnMenuResponsive.open .lignes:nth-child(1){
+	transform: translateY(0) translateX(-7px) rotate(135deg);
+	width:25px
+}
+
+.btnMenuResponsive.open .lignes:nth-child(2){
+	opacity: 0;
+	transition: opacity 0s ease-out;
+}
+
+.btnMenuResponsive.open .lignes:nth-child(3){
+	transform: translateY(0) translateX(-7px) rotate(-135deg);
+	width:25px
+}
+
+
+
+.header-BandeauInf {
+	grid-area:BandInf; /*Nom de la Zone affecté dans le 'grid-template-aréa' */
+	background: var(--color_1); /* couleur du fond */
+
+}
+
+@media screen and (max-width:1700px) {
+.nav_Item {		
+	font-size: 23px; /*Choix de la taille de la police d'écriture */
+}		
+}
+
+@media screen and (max-width:1450px) {
+	.nomSociete {
+		font-size: 35px; /*Choix de la taille de la police d'écriture */		
+	}
+	.notreMetier {
+		font-size: 25px; /*Choix de la taille de la police d'écriture */
+	}
+	.slogan {
+		font-size: 18px; /*Choix de la taille de la police d'écriture */
+	}
+	.nav_Item {		
+		font-size: 20px; /*Choix de la taille de la police d'écriture */
+	}
+	.pageActive {
+		border-bottom: var(--policeTaille_1) solid var(--color_1); /*Souligne la page active*/
+	}	
+}
+
+
+@media screen and (max-width:1300px) {
+	.nomSociete {
+		font-size: 30px; /*Choix de la taille de la police d'écriture */		
+	}
+	.notreMetier {
+		font-size: 22px; /*Choix de la taille de la police d'écriture */
+	}
+	.slogan {
+		font-size: 15px; /*Choix de la taille de la police d'écriture */
+	}
+	.nav_Item {		
+		font-size: 18px; /*Choix de la taille de la police d'écriture */
+	}
+	.pageActive {
+		border-bottom: var(--policeTaille_1) solid var(--color_1); /*Souligne la page active*/
+	}
+				
+}
+
+
+@media screen and (max-width:1200px) {
+	.header-BandeauCentral {
+		grid-template-columns: 20fr 1fr ; /* on détermine le nombre de colonnes et leur largeur */
+		column-gap: 0px; /*On détermine les intercolonnes */
+		grid-template-areas:	
+	"NomSoc Logo"
+	"NomMet Nav"
+	"Slog ."	
+	}
+
+	.btnMenuResponsive {
+		display: flex;
+	}
+		/* CSS pour toutes les lignes */
+	
+	.logo {
+		display: none;
+	}
+	.nomSociete {
+		font-size: 35px; /*Choix de la taille de la police d'écriture */		
+	}
+	.notreMetier {
+		font-size: 25px; /*Choix de la taille de la police d'écriture */
+	}
+	.slogan {
+		font-size: 20px; /*Choix de la taille de la police d'écriture */
+	}
+	.menuNavigation{
+		grid-area: Nav;
+		display: flex;		
+		font-size: var(--policeTaille_2); 
+		flex-direction: column;
+		align-items: flex-start;
+		position: absolute;
+		height: 165px;			
+		border-left:5px solid blue ;
+		margin-top: -50px;
+		margin-left: -50px;
+		transform:translate(200%);
+		
+	}
+
+	.nav_Item {
+		text-decoration: none;/*On ne souligne pas les liens*/
+		color:inherit;/*On ne modifie pas la couleur des liens*/
+		font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+		font-size: 15px; /*Choix de la taille de la police d'écriture */
+		position: relative;
+		margin-top: -6px;
+		padding-left: 10px;		
+	}
+
+	.openNav {
+		transform:translate(0%);
+
+	}
+	.pageActive {
+		border-bottom: var(--policeTaille_1) solid var(--color_1); /*Souligne la page active*/
+	}
+	
+	.btn_band_sup {
+		display: none;
+	}
+}
+
+@media screen and (max-width:700px) {
+	.header-BandeauCentral {
+		grid-template-columns: 20fr 1fr ; /* on détermine le nombre de colonnes et leur largeur */
+		column-gap: 0px; /*On détermine les intercolonnes */
+		grid-template-areas:	
+	"NomSoc Logo"
+	"NomMet Nav"
+	"Slog ."	
+	}
+
+	.btnMenuResponsive {
+		display: flex;
+	}
+		/* CSS pour toutes les lignes */
+	
+
+	.logo {
+		display: none;
+	}
+	.nomSociete {
+		font-size: 22px; /*Choix de la taille de la police d'écriture */		
+	}
+	.notreMetier {
+		font-size: 20px; /*Choix de la taille de la police d'écriture */
+	}
+	.slogan {
+		font-size: 15px; /*Choix de la taille de la police d'écriture */
+	}
+	.menuNavigation{
+		grid-area: Nav;
+		display: flex;		
+		font-size: var(--policeTaille_2); 
+		flex-direction: column;
+		align-items: flex-start;
+		position: absolute;
+		height: 165px;			
+		border-left:5px solid blue ;
+		margin-top: -50px;
+		margin-left: -50px;
+		transform:translate(200%);
+			
+	}
+
+	.nav_Item {
+		text-decoration: none;/*On ne souligne pas les liens*/
+		color:inherit;/*On ne modifie pas la couleur des liens*/
+		font-family: var(--policeFonts_1); /*Choix de la police d'écriture*/
+		font-size: 15px; /*Choix de la taille de la police d'écriture */
+		position: relative;
+		margin-top: -6px;
+		padding-left: 10px;		
+	}
+
+	.openNav {
+		transform:translate(0%);
+
+	}
+	.pageActive {
+		border-bottom: var(--policeTaille_1) solid var(--color_1); /*Souligne la page active*/
+	}
+	
+	.btn_band_sup {
+		display: none;
+	}
+}
+
